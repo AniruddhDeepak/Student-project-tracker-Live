@@ -47,6 +47,11 @@ header p {
   font-size: 1.05rem;
 }
 
+.student-details {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
 section {
   margin-bottom: 28px;
   padding: 24px;
@@ -203,4 +208,3 @@ select:focus-visible {
     margin: 8px 0 0;
   }
 }
-
