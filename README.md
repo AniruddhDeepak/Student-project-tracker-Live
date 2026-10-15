@@ -30,6 +30,8 @@ Use Node.js 22, as specified in `package.json`.
 
 `DATABASE_URL` is server-only. For a Vercel deployment, configure it in the Vercel project’s environment-variable settings; do not expose it to browser code.
 
+Vercel serves files from `public/` as static assets and does not use the Express `express.static()` middleware for them. The Vercel rewrite in [`vercel.json`](./vercel.json) maps the site root (`/`) to `public/index.html`.
+
 ## Data and access
 
 There is no sign-in. All visitors use the same shared demo records and can make changes to them. Do not use this demo for private or sensitive project data.
@@ -40,4 +42,4 @@ The original deployer's Supabase and Vercel credentials are not included. To dep
 
 - `npm.cmd ci` completed successfully. It reported an engine warning because this environment has Node.js 24.11.1; the project specifies Node.js 22.
 - Confirmed `.env` is ignored by the repository rules and `.env.example` is allowed.
-- The server and database connection have not been started or verified here; the local `.env` still contains its placeholder.
+- A local Express smoke test returned `200` for `/` and `/style.css`; it made no database queries. The database connection has not been verified because the local `.env` still contains its placeholder.
